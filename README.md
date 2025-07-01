@@ -29,4 +29,4 @@
   3. different types of file extensions, like **js, cjs, mjs**
   4. by default variables goes to `module scope` and `use strict` is enabled
   5. for module files `.js` extension is necessary. React automatically handles it.
-  6. the `import.meta` inside _module_ system
+  6. the `import.meta` inside _module_ system. Available in browser also.
