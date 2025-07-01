@@ -15,3 +15,6 @@
     1. `require()` is a function
     2. `module.exports = ...` is its return value. It can be array as well.
     3. a function when called can only return a single value
+    4. difference between `module.exports` vs `exports`
+    5. understanding `module` object and `local variables`
+    6. how to use `isPreloading` by using *node --require ./math.js app.js*
