@@ -18,3 +18,5 @@
     4. difference between `module.exports` vs `exports`
     5. understanding `module` object and `local variables`
     6. how to use `isPreloading` by using *node --require ./math.js app.js*
+    7. `module wrapper` function importance. Every module is wrapped using this wrapper
+    8. creating `custom module wrapper` function
