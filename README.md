@@ -24,6 +24,7 @@
   8. creating `custom module wrapper` function
 
 - Understanding `ES6` Module System
+
   1. different types of `import` and `export` syntax with aliases
   2. enabling `commonJS` and `module` in _package.json_ file
   3. different types of file extensions, like **js, cjs, mjs**
@@ -34,3 +35,18 @@
   8. difference between `import` and `require`
   9. what are `npm modules` and how to create and publish `npm package`
 
+- understanding `package.json` file in detail
+
+- understanding `npx` in detail
+
+  1. importance of `package.json` file and its features
+  2. what is `shebang` and how it works
+  3. what is `npx` at granular level and how it works using `shebang`
+  4. how to use `env` to apply same shebang syntax for different OS
+
+- understanding `fs/promises` module in detail
+  1. rename a file, folder
+  2. create a file, write in a file, append a file
+  3. delete file, directory, non-empty directory
+
+---
