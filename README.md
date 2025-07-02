@@ -30,3 +30,7 @@
   4. by default variables goes to `module scope` and `use strict` is enabled
   5. for module files `.js` extension is necessary. React automatically handles it.
   6. the `import.meta` inside _module_ system. Available in browser also.
+  7. reason for different types of module system
+  8. difference between `import` and `require`
+  9. what are `npm modules` and how to create and publish `npm package`
+
