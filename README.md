@@ -49,4 +49,6 @@
   2. create a file, write in a file, append a file
   3. delete file, directory, non-empty directory
 
+While working with a file for normal operations (read, write, append, delete) we directly have methods on `fs/promises`. However, if we want more control over file then we use `fileHandle`. It is basically used to control file at a more granular level. We can read our file in **chunks** which is very helpful. More clarity on it after reading `Buffer` and `Streams` chapters.
+
 ---
