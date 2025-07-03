@@ -52,3 +52,62 @@
 While working with a file for normal operations (read, write, append, delete) we directly have methods on `fs/promises`. However, if we want more control over file then we use `fileHandle`. It is basically used to control file at a more granular level. We can read our file in **chunks** which is very helpful. More clarity on it after reading `Buffer` and `Streams` chapters.
 
 ---
+
+## Data Representation in Computers
+
+- decimal number system
+  1. works in base 10
+  2. numbers associated `0 1 2 3 4 5 6 7 8 9`
+  3. uses no prefix
+
+- octal number system
+  1. works in base 8
+  2. numbers associated `0 1 2 3 4 5 6 7`
+  3. uses prefix `0o`
+
+- binary number system
+  1. works in base 2
+  2. numbers associated `0 1`
+  3. uses prefix `0b`
+
+- hexadecimal number system
+  1. works in base 16
+  2. numbers associated `0 1 2 3 4 5 6 7 8 9 A B C D E F`
+  3. uses prefix `0x`
+
+In JavaScript (and Node.js), numbers are interpreted as decimal by default unless specified otherwise `(like binary 0b, octal 0o, or hexadecimal 0x)`. Internally, all numbers are processed in binary during computation. We can also use `parseInt(string, ?.radix)` and `number.toString(radix)` for conversion of one form to another.
+
+- Digital Data Unit
+  1. smallest unit of data is 1 bit
+  2. there are two main system for measuring data units `SI vs IEC`
+  3. in case of **SI System => 1KiloByte = 1000 Bytes**
+  4. in case of **IEC System => 1KibiByte = 1024 Bytes**
+  5. bit => nibble => byte => kibi => mibi => gibi => tb ...
+  6. majority systems uses IEC format
+
+- Character Sets
+  1. list of characters available
+  2. text, numbers, or any kind of letters
+  3. each of the characters is assigned a numbers
+  4. `ASCII` and `UNICODE` are examples
+  5. **UNICODE** is backward compatible with **ASCII** values
+
+- Character Encodings
+  1. format of storing a character in binary format
+  2. ASCII Encoding uses `7-bits`, thus maximum is 2<sup>7</sup> = 256
+  3. UTF-8 use 8-bits to represent a number
+  4. Also, Unicode contains `1.1 Million Characters` and all can be represented by using UTF-8
+  5. This is because of a `unique way of representing` them in numbers
+  6. Other examples `UTF-16 UTF-32`
+
+- Understanding UTF-8 in Depth
+  1. uses `variable bytes` for encoding a character
+  2. bash command `xxd -b fileName` to view file in binary format
+  3. bash command `xxd -g 1 fileName` to view each group individually
+  4. a file should be `saved and re-opened` with `same encoding` or else will show different text
+  5. it must be kept in mind that at the low level data is stored in binary only but with a different grouping of bits
+  6. UTF-8 is capable of storing data represented by 1Byte, 2Byte, 3Byte, 4Byte
+  7. for representing a single byte data, always starts with a _Zero as Header_ i.e. `0xxxxxxx`, thus max is **01111111*
+  8. for 2 bytes `110xxxxx 10xxxxxx`, the **110  and 10** acts as header
+  9. for 3 bytes `1110xxxx 10xxxxxx 10xxxxxx`
+  10. for 4 bytes `11110xxxx 10xxxxxx 10xxxxxx 10xxxxxx`
