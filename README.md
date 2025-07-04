@@ -56,16 +56,19 @@ While working with a file for normal operations (read, write, append, delete) we
 ## Data Representation in Computers
 
 - decimal number system
+
   1. works in base 10
   2. numbers associated `0 1 2 3 4 5 6 7 8 9`
   3. uses no prefix
 
 - octal number system
+
   1. works in base 8
   2. numbers associated `0 1 2 3 4 5 6 7`
   3. uses prefix `0o`
 
 - binary number system
+
   1. works in base 2
   2. numbers associated `0 1`
   3. uses prefix `0b`
@@ -78,6 +81,7 @@ While working with a file for normal operations (read, write, append, delete) we
 In JavaScript (and Node.js), numbers are interpreted as decimal by default unless specified otherwise `(like binary 0b, octal 0o, or hexadecimal 0x)`. Internally, all numbers are processed in binary during computation. We can also use `parseInt(string, ?.radix)` and `number.toString(radix)` for conversion of one form to another.
 
 - Digital Data Unit
+
   1. smallest unit of data is 1 bit
   2. there are two main system for measuring data units `SI vs IEC`
   3. in case of **SI System => 1KiloByte = 1000 Bytes**
@@ -86,6 +90,7 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   6. majority systems uses IEC format
 
 - Character Sets
+
   1. list of characters available
   2. text, numbers, or any kind of letters
   3. each of the characters is assigned a numbers
@@ -93,6 +98,7 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   5. **UNICODE** is backward compatible with **ASCII** values
 
 - Character Encodings
+
   1. format of storing a character in binary format
   2. ASCII Encoding uses `7-bits`, thus maximum is 2<sup>7</sup> = 256
   3. UTF-8 use 8-bits to represent a number
@@ -101,13 +107,36 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   6. Other examples `UTF-16 UTF-32`
 
 - Understanding UTF-8 in Depth
+
   1. uses `variable bytes` for encoding a character
   2. bash command `xxd -b fileName` to view file in binary format
   3. bash command `xxd -g 1 fileName` to view each group individually
   4. a file should be `saved and re-opened` with `same encoding` or else will show different text
   5. it must be kept in mind that at the low level data is stored in binary only but with a different grouping of bits
   6. UTF-8 is capable of storing data represented by 1Byte, 2Byte, 3Byte, 4Byte
-  7. for representing a single byte data, always starts with a _Zero as Header_ i.e. `0xxxxxxx`, thus max is **01111111*
-  8. for 2 bytes `110xxxxx 10xxxxxx`, the **110  and 10** acts as header
+  7. for representing a single byte data, always starts with a _Zero as Header_ i.e. `0xxxxxxx`, thus max is \*_01111111_
+  8. for 2 bytes `110xxxxx 10xxxxxx`, the **110 and 10** acts as header
   9. for 3 bytes `1110xxxx 10xxxxxx 10xxxxxx`
   10. for 4 bytes `11110xxxx 10xxxxxx 10xxxxxx 10xxxxxx`
+
+- Understanding UTF-16
+
+  1. a file saved with UTF-16 encoding already has a size of 2 bytes and uses 2 bytes or 16 bits for a character
+  2. this is because of these header `fffe` and `feff`, thus we have 2 versions `UTF-16LE` and `UTF-16BE`
+  3. It has uses variable bits to represented all the characters
+
+- Understanding UTF-32
+
+  1. uses fixed size bits i.e. 32 bits for character representation
+  2. takes up space but fast because no dealing with headers
+
+- Endianess and Byte Order Mark
+  1. a given data `0x425A` can be either be stored in `425A` or `5A42`
+  2. `5A42` format is more intuitive for computers thus majority manufacturers uses this
+  3. the header which decides this format is the `Byte Order Mark` represented by `feff` or `fffe`
+  4. the foramt `425A` is known as `Big Endian`, name from _Gullivers Travel_
+  5. the foramt `5A42` is known as `Little Endian`
+  6. Node JS only understands Little Endian
+  7. we can add `BOM` to UTF-8 as well
+
+---
