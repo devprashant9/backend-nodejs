@@ -152,4 +152,7 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   6. difference between `alloc vs allocUnsafe vs from`
   7. why is `allocUnsafe()` faster and `Buffer Pool`
   8. methods on `buffer instance` mainly like `Arrays`
+  9. `limitations` of using Buffer
+  10. `base64 encoding` and how it works on `binary data`
 
+---
