@@ -150,4 +150,6 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   4. what are `typed arrays`
   5. `Buffer` class in Node JS
   6. difference between `alloc vs allocUnsafe vs from`
+  7. why is `allocUnsafe()` faster and `Buffer Pool`
+  8. methods on `buffer instance` mainly like `Arrays`
 
