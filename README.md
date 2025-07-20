@@ -140,3 +140,14 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   7. we can add `BOM` to UTF-8 as well
 
 ---
+
+## Buffers in Node JS
+
+- understanding `ArrayBuffer` in JavaScript
+  1. signed vs unSigned values and how are they stored
+  2. reading and writing `ArrayBuffer` using `DataView`
+  3. how to write multibytes data
+  4. what are `typed arrays`
+  5. `Buffer` class in Node JS
+  6. difference between `alloc vs allocUnsafe vs from`
+
