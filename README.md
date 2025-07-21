@@ -156,3 +156,28 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   10. `base64 encoding` and how it works on `binary data`
 
 ---
+
+## Event Driven Architeture
+
+- CPU Operations vs I/O Operations
+
+  1. CPU tasks in `main thread` and IO task in `async`
+  2. I/O taks includes file reading-writing, db querying, network request, user input
+  3. I/O taks consumes more time
+
+- `async IO` in Node JS
+
+  1. non-blocking async IO
+
+- working of `Event Driven Architecture`
+
+  1. it is a design pattern
+  2. event emitter -> event listener -> event handler
+  3. Browser DOM Events, Chat Application, Payment System
+
+- `Event Emitter` class in Node JS
+  1. how to use the event class
+  2. usage of `on` `once`
+  3. writing simple custom class for even emitter
+
+---
