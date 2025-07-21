@@ -197,9 +197,23 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   4. Transform Stream
 
 - Understanding readable streams
+
   1. buffer cannot read file greater than `2Gib` using Buffer
   2. buffer consumes `RAM same as Buffer size` if file is less than 2Gib
   3. read-write with buffer vs streams
   4. Readable Stream is a `event emitter`
   5. default size of `chunk is 64KB` and manipulated by `highWaterMark`
   6. streams can be used to send data greater than 2Gib but takes times
+
+- Different `States of Stream`
+
+  1. intial state
+  2. flowing state
+  3. paused state => after the vide starts and before the video ends
+  4. end state
+  5. readableFlowing and readableEnded give `true` on `end` event
+  6. `resume()` event to resume after `paused()`
+
+- Concept of `internal buffer` and `readable` event
+  - `readable` gets fired when content in buffer gets loaded
+  - `read()` method controls the amount of data flow through each buffer
