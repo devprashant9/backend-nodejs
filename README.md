@@ -215,5 +215,28 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   6. `resume()` event to resume after `paused()`
 
 - Concept of `internal buffer` and `readable` event
+
   - `readable` gets fired when content in buffer gets loaded
   - `read()` method controls the amount of data flow through each buffer
+
+- Introduction to `Writable Streams`
+
+  1. max value of `highWaterMark = 16kb`
+  2. `createWritableStream` empties file if present before writing
+  3. issue with `writableStream` without handling `Back Pressure`
+
+- Concept of `Back Pressure`
+
+  1. readable chunk size > write capacity, thus data keeps getting loaded in RAM
+  2. maintaining `same highWaterMark` value will also not improve the issue
+  3. one core difference is because of `read-write speed on disk`
+  4. despite having `fixed internal buffer` size it `keeps on loading data` if there is a flow
+  5. writable stream needs to apply `back pressure` when its internal buffer is full so that it can write the current buffer data
+  6. `boolean` return by writeStream too determine whether it could carry more data or not
+  7. closing writable stream causes `finish` event to execute and clears `internal buffer`
+
+- States of `writable stream`
+  1. Initial State
+  2. Corked State
+  3. Ended State => data may be present in buffer
+  4. Finished State => all data have been written completely
