@@ -236,7 +236,17 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   7. closing writable stream causes `finish` event to execute and clears `internal buffer`
 
 - States of `writable stream`
+
   1. Initial State
   2. Corked State
   3. Ended State => data may be present in buffer
   4. Finished State => all data have been written completely
+
+- `Piping` in Node JS
+  1. handling back pressure `without pipe`
+  2. handling back pressure `with pipe()`
+  3. we should use `pipe()` on `readStreams` only
+  4. `unpipe()` breaks the flow of data from `pipe()`
+  5. both cases fires a `event on writeStream` by the ir respective names
+  6. to handle error we need to manually register `error` event because `pipe` cannot handle it
+  7. use `pipeline` from `stream` to handle error as well
