@@ -181,3 +181,25 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   3. writing simple custom class for even emitter
 
 ---
+
+## Streams in Node JS
+
+- Introduction to `Streams` in Node JS
+
+  1. limitations of buffer and max buffer size of 2 Gib
+  2. how in streams splitting the buffer into parts makes it efficient for RAM
+
+- Introduction to `types` of Streams
+
+  1. Readable Stream
+  2. Writable Stream
+  3. Duplex Stream
+  4. Transform Stream
+
+- Understanding readable streams
+  1. buffer cannot read file greater than `2Gib` using Buffer
+  2. buffer consumes `RAM same as Buffer size` if file is less than 2Gib
+  3. read-write with buffer vs streams
+  4. Readable Stream is a `event emitter`
+  5. default size of `chunk is 64KB` and manipulated by `highWaterMark`
+  6. streams can be used to send data greater than 2Gib but takes times
