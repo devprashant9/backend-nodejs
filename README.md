@@ -269,3 +269,21 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   7. glimpse of `child_process` to start a process
   8. `piping and re-direction` in data streams. Properly works in `wsl`
   9. `>` and `<` used for re-direction in both ways and it overwrites. `>>` and `<<` used for append in an existing file
+
+- Writing numbers from `1 - 5000`
+
+  1. using `CallBack`, time taken is `1.263s` and maintains NO order
+  2. using `Sync`, time taken is `1.208s` and maintains order
+  3. using `streams`, time taken is `40ms` and maintains order
+
+- Writing numbers from `1 - 100000`
+
+  1. using `CallBack`, `throws error` above 8000
+  2. using `Sync`, time taken is `24s`
+  3. using `streams`, time taken is `276ms`
+
+- Understanding why are `streams fast`
+
+  1. `createWriteStream` opens the fil and closes it after data has been written or `end` is called. Writes on internal buffer.
+  2. `writeFile and writeFileSync` searches and opens the file and closes it at each call. Writes directly on disk.
+  3. streams `writes on internal buffer 16kb` which is very fast compared to disk and chunk of data at each instance
