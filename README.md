@@ -287,3 +287,14 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   1. `createWriteStream` opens the fil and closes it after data has been written or `end` is called. Writes on internal buffer.
   2. `writeFile and writeFileSync` searches and opens the file and closes it at each call. Writes directly on disk.
   3. streams `writes on internal buffer 16kb` which is very fast compared to disk and chunk of data at each instance
+
+- Introduction to `File Descriptor`
+
+  1. `Non_Negative Integer` number that represents a file
+  2. assigned by OS when a file is opened and is assigned in incremented order
+  3. usuall starts from 3 because `0, 1 and 2` are assigned to `stdin, stdout and error`
+  4. reading file with the help of file descriptor
+  5. different `modes` associated with file. Default is `r` read-mode
+  6. writing file with the help of file descriptor
+  7. making `sync method fast` with the help of `mode`
+  8. implementation of `internal buffer` and making `Sync` fast as stream
