@@ -253,6 +253,19 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   7. use `pipeline` from `stream` to handle error as well
 
 - Other common types of Streams
+
   1. Duplex => Readable + Writable
   2. Transform => Output from 1st Becomes Input for 2nd
   3. Pass Through => Special Transform
+
+- Data Streams in Node JS (OS Specific)
+
+  1. each process has 3 data streams when they start
+  2. `stdin` attached to keyboard by default. Duplex stream but behaves readable majority of the times
+  3. `stdout` attached to monitor by default. Duplex stream but behaves writable majority of the times
+  4. `stderr` attached to monitor by default.
+  5. simple usage of all
+  6. `file descriptor` meaning in a process and number assigned
+  7. glimpse of `child_process` to start a process
+  8. `piping and re-direction` in data streams. Properly works in `wsl`
+  9. `>` and `<` used for re-direction in both ways and it overwrites. `>>` and `<<` used for append in an existing file
