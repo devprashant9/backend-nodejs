@@ -1,0 +1,44 @@
+import http from "http";
+import { createWriteStream } from "fs";
+import { IncomingForm } from "formidable";
+
+const PORT = 3000;
+
+const server = http.createServer((req, res) => {
+    if (req.url === "/upload" && req.method.toLowerCase() === "post") {
+        const form = new IncomingForm();
+
+        form.parse(req, (err, fields, files) => {
+            if (err) {
+                res.writeHead(500, { "Content-Type": "text/plain" });
+                return res.end("Error parsing the file");
+            }
+
+            const file = files.file;
+            const oldPath = file[0].filepath;
+            const newPath = `./uploads/${file[0].originalFilename}`;
+
+            const readStream = createReadStream(oldPath);
+            const writeStream = createWriteStream(newPath);
+
+            readStream.pipe(writeStream);
+
+            writeStream.on("finish", () => {
+                res.writeHead(200, { "Content-Type": "text/plain" });
+                res.end("File uploaded successfully!");
+            });
+        });
+    } else {
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.end(`
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <button type="submit">Upload</button>
+            </form>
+        `);
+    }
+});
+
+server.listen(PORT, () => {
+    console.log(`🚀 Server is running on http://localhost:${PORT}`);
+});

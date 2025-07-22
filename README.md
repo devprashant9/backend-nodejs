@@ -298,3 +298,9 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   6. writing file with the help of file descriptor
   7. making `sync method fast` with the help of `mode`
   8. implementation of `internal buffer` and making `Sync` fast as stream
+
+  - Handling Files Using `fs/promises`
+
+  - Understanding `streams` in browser
+
+---
