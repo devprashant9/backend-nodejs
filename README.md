@@ -334,3 +334,23 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
 - Using `EC2` to work with remote system from local system
 
 ---
+
+## Networking Capabilities of Node JS
+
+- Supported networking cpabilities
+
+- Creating a `UDP Client Server` Model with Multiple Clients
+
+- Sending Files Using `UDP`
+
+  1. small files of `10bytes` get sent
+  2. bigger files won't be sent because of the default buffer size
+  3. the network carrier also limits the size of file being shared
+  4. `UDP` doesn't gives any error if file sending fails and automatically drops it
+  5. we can use `streams` to read data in chunks and then send it over network by minimizing the `highWaterMark` value
+
+- What is a `Socket`
+  1. not same as `Socket.IO`
+  2. connection end point between 2 systems for data sharaing
+  3. `UDP` only creates connection while sending the data and sends it. It doesn't matter where data goes
+  4. `TCP` verifies whether the data has been sent to the requested client or not
