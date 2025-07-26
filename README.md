@@ -304,3 +304,33 @@ In JavaScript (and Node.js), numbers are interpreted as decimal by default unles
   - Understanding `streams` in browser
 
 ---
+
+## Networking Basics For Node JS
+
+- History of `Internet`, `DNS` and `WWW`
+
+- Networking Devices and Types `LAN`, `MAN`, `WAN`
+
+- Understanding `IPv4` Address
+
+- `Static vs Dynamic` IP Address and `Public vs Private` IP Address
+
+- Using `Public IP` to Make Laptop as Server
+
+- Understanding `Domain Name System` in Detail
+
+- Understanding `IPv6` in Depth
+
+- What are `Port` Numbers and `Network Interfaces, MAC Address`
+
+- What is `Firewall`. `Inbound and Outbound` rules
+
+- Understanding `OSI and TCP/IP` Architecture
+
+- Backbone of Internet, `TCP and UDP`
+
+- Understanding `SCP Command` and `SSH`
+
+- Using `EC2` to work with remote system from local system
+
+---
